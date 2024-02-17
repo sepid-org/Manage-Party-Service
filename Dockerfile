@@ -17,6 +17,7 @@ COPY . /app/
 RUN adduser sepid
 
 RUN mkdir -p /app/logging && chown -R sepid /app/logging \
+	&& mkdir -p /app/staticfiles && chown -R sepid /app/staticfiles \
 	&& mkdir -p /app/media && chown -R sepid /app/media
 
 RUN chown -R sepid /app/
