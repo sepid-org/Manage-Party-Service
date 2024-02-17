@@ -1,9 +1,9 @@
 import os
 
 
-def get_environment_var(var_name, default, prefixed=True):
+def get_environment_var(var_name, default=None, prefixed=True):
     if prefixed:
-        var_name = 'SEIPID_manage_party_service_%s' % var_name
+        var_name = 'SEIPID_MPS_%s' % var_name
     return os.getenv(var_name, default)
 
 
