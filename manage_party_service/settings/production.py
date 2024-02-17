@@ -1,19 +1,19 @@
-from datetime import timedelta
 from manage_party_service.settings.base import *
 
 DEBUG = get_environment_var('DEBUG', 'False') == 'True'
 
-SECRET_KEY = get_environment_var(
-    'SECRET_KEY', '*z!3aidedw32xh&1ew(^&5dgd17(ynnmk=s*mo=v2l_(4t_ff(')
-
 ALLOWED_HOSTS = get_environment_var('ALLOWED_HOSTS', '*').split(',')
 
-SERVICE_DOMAIN = 'https://party-manager.sepid.org/'
+SERVICE_DOMAIN = 'https://mps.sepid.org/'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': get_environment_var('DB_NAME'),
+        'USER': get_environment_var('DB_USER', 'user'),
+        'PASSWORD': get_environment_var('DB_PASS'),
+        'HOST': get_environment_var('DB_HOST'),
+        'PORT': get_environment_var('DB_PORT', '5432')
     }
 }
 
@@ -65,6 +65,9 @@ LOGGING = {
 TESTING = False
 
 SWAGGER_URL = f'{SERVICE_DOMAIN}api/'
+
+SECRET_KEY = get_environment_var(
+    'SECRET_KEY', '*z!3aidedw32xh&1ew(^&5dgd17(ynnmk=s*mo=v2l_(4t_ff(')
 
 CSRF_TRUSTED_ORIGINS = get_environment_var(
     'CSRF_TRUSTED_ORIGINS', '*').split(',')
