@@ -2,7 +2,7 @@ from manage_party_service.settings.base import *
 
 DEBUG = get_environment_var('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = get_environment_var('ALLOWED_HOSTS', '*').split(',')
+TESTING = False
 
 SERVICE_DOMAIN = 'https://mps.sepid.org/'
 
@@ -17,8 +17,7 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = os.path.join(BASE_DIR, get_environment_var(
-    'STATIC_ROOT_FILE_NAME', 'staticfiles'))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOG_LEVEL = get_environment_var('LOG_LEVEL', 'INFO')
 
@@ -62,8 +61,6 @@ LOGGING = {
     },
 }
 
-TESTING = False
-
 SWAGGER_URL = f'{SERVICE_DOMAIN}api/'
 
 SECRET_KEY = get_environment_var(
@@ -71,3 +68,5 @@ SECRET_KEY = get_environment_var(
 
 CSRF_TRUSTED_ORIGINS = get_environment_var(
     'CSRF_TRUSTED_ORIGINS', '*').split(',')
+
+ALLOWED_HOSTS = get_environment_var('ALLOWED_HOSTS', '*').split(',')
