@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'django_extensions',
     'django_filters',
+    'polymorphic',
     'manage_party_service.apps.ManagePartyServiceConfig',
     'apps.party.apps.PartyConfig',
     'apps.site_appearance.apps.SiteAppearanceConfig'

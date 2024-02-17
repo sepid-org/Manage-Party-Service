@@ -5,6 +5,8 @@ django-cors-headers==4.3.1
 django-extensions==3.2.3
 django-filter==23.5
 djangorestframework==3.14.0
+django-polymorphic==3.1.0
+django-rest-polymorphic==0.1.10
 drf-yasg==1.21.7
 inflection==0.5.1
 packaging==23.2

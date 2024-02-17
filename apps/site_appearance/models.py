@@ -2,13 +2,15 @@ from django.db import models
 
 
 class Banner(models.Model):
-    class BannerType(models.TextChoices):
-        programs_page = "ProgramsPage"
-        program_page = "ProgramPage"
-
-    banner_type = models.CharField(
-        max_length=30, default=BannerType.programs_page, choices=BannerType.choices)
-    desktop_image = models.ImageField(upload_to='site_appearance/')
-    mobile_image = models.ImageField(upload_to='site_appearance/')
+    desktop_image = models.ImageField(upload_to='banners/')
+    mobile_image = models.ImageField(upload_to='banners/')
     is_active = models.BooleanField(default=False)
     redirect_to = models.URLField()
+
+
+class Logo(models.Model):
+    mobile_image = models.ImageField(upload_to='logos/')
+    desktop_image = models.ImageField(upload_to='logos/')
+
+
+# گفتینو - قالب رنگی - منوی بالا
