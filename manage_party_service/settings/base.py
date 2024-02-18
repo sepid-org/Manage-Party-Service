@@ -1,7 +1,5 @@
 import os
-import mimetypes
 
-mimetypes.add_type("text/css", ".css", True)
 
 def get_environment_var(var_name, default=None, prefixed=True):
     if prefixed:
