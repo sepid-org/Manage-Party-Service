@@ -1,7 +1,7 @@
 #!/bin/bash
 
-./manage.py collectstatic --noinput
+python3 ./manage.py collectstatic --noinput --clear
 
-./manage.py migrate
+python3 ./manage.py migrate
 
-./manage.py runserver
+python3 ./manage.py runserver
