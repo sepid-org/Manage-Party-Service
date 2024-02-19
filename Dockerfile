@@ -26,4 +26,4 @@ USER sepid
 
 EXPOSE 8000
 
-CMD ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
