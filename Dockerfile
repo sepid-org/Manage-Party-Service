@@ -26,8 +26,4 @@ USER sepid
 
 EXPOSE 8000
 
-RUN python manage.py collectstatic --noinput
-RUN python manage.py migrate
-
-ENTRYPOINT ["python", "manage.py"]
-CMD ["runserver", "0.0.0.0:8000"]
+CMD ["/app/entrypoint.sh"]
