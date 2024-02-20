@@ -3,9 +3,13 @@
 import os
 import sys
 
+from django.core.management.commands.runserver import Command as runserver
+runserver.default_port = "9000"
+
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'manage_party_service.settings.development')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                          'manage_party_service.settings.development')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -19,4 +23,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
