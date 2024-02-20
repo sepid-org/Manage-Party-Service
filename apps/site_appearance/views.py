@@ -3,7 +3,7 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 
 from apps.site_appearance.models import Banner
-from apps.site_appearance.serializers import BannerSerializer
+from apps.site_appearance.serializers.banner_serializer import BannerSerializer
 
 
 class BannerViewSet(viewsets.ReadOnlyModelViewSet):

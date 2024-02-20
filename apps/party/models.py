@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from apps.site_appearance.models import HeaderData, Logo, OpenGraphMetaData
 from polymorphic.models import PolymorphicModel
 
 
@@ -14,8 +15,16 @@ class Party(PolymorphicModel):
     name = models.CharField(max_length=30, unique=True)
     local_name = models.CharField(max_length=50)
 
+    logo = models.OneToOneField(
+        Logo, on_delete=models.PROTECT, related_name='party', null=True)
+    main_page_header_data = models.ForeignKey(
+        HeaderData, on_delete=models.PROTECT, related_name='party', null=True)
+    main_page_og_metadata = models.ForeignKey(
+        OpenGraphMetaData, on_delete=models.SET_NULL, related_name='party', null=True)
+
     def __str__(self):
         return f'{self.local_name} | {self.name} | {self.party_type}'
+
 
 class Individual(Party):
     pass
