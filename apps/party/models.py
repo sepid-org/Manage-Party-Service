@@ -13,7 +13,7 @@ class Party(PolymorphicModel):
     uuid = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=30, unique=True)
-    display_name = models.CharField(max_length=10)
+    display_name = models.CharField(max_length=20)
 
     logo = models.OneToOneField(
         Logo, on_delete=models.PROTECT, related_name='party', null=True)

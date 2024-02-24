@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='party',
             name='local_name',
-            field=models.CharField(max_length=10),
+            field=models.CharField(max_length=20),
         ),
         migrations.RenameField(
             model_name='party',
