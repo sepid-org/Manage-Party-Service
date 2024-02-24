@@ -12,7 +12,12 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='party',
-            name='display_name',
+            name='local_name',
             field=models.CharField(max_length=10),
+        ),
+        migrations.RenameField(
+            model_name='party',
+            old_name='local_name',
+            new_name='display_name',
         ),
     ]
