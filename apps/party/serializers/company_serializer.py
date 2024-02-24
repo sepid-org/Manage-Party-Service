@@ -14,7 +14,7 @@ class CompanySerializer(_PartySerializer):
 
     class Meta:
         model = Company
-        fields = ['name', 'local_name', 'uuid', 'party_type',
+        fields = ['name', 'display_name', 'uuid', 'party_type',
                   'logo', 'main_page_header_data', 'main_page_og_metadata']
         read_only_fields = ['uuid', 'party_type',
                             'logo', 'main_page_header_data', 'main_page_og_metadata']

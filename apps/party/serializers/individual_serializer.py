@@ -6,5 +6,5 @@ class IndividualSerializer(_PartySerializer):
 
     class Meta:
         model = Individual
-        fields = ['name', 'local_name', 'uuid', 'party_type']
+        fields = ['name', 'display_name', 'uuid', 'party_type']
         read_only_fields = ['uuid', 'party_type']
