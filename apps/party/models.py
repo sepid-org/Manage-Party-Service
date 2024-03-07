@@ -12,6 +12,7 @@ class Party(PolymorphicModel):
     party_type = models.CharField(max_length=25, choices=PartyType.choices)
     uuid = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
+    # the "name" is not necessary. it's useless until now:
     name = models.CharField(max_length=30, unique=True)
     display_name = models.CharField(max_length=20)
 
