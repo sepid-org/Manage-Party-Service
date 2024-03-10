@@ -5,7 +5,7 @@ from apps.site_appearance.models import HeaderData, Banner, Page, OpenGraphMetaD
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
     model = Page
-    list_display = ['id', 'address_pattern']
+    list_display = ['name', 'address_pattern', 'party']
     list_filter = ['party']
 
 

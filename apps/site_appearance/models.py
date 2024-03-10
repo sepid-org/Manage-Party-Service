@@ -10,13 +10,14 @@ class HeaderData(models.Model):
 
 class OpenGraphMetaData(models.Model):
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, null=True, blank=True)
     type = models.CharField(max_length=100)
     image = models.ImageField(upload_to='og_images/')
     url = models.URLField(max_length=200)
 
 
 class Page(models.Model):
+    name = models.CharField(max_length=50, null=True, blank=True)
     party = models.UUIDField()
     address_pattern = models.CharField(max_length=100)
     header_data = models.OneToOneField(
@@ -25,9 +26,13 @@ class Page(models.Model):
         OpenGraphMetaData, on_delete=models.PROTECT, related_name='page', null=True, blank=True)
     order = models.IntegerField(default=0)
 
+    def __str__(self):
+        return f'name: {self.name} | address pattern: {self.address_pattern} | order: {self.order}'
+
 
 class Banner(models.Model):
-    page = models.ForeignKey(Page, on_delete=models.PROTECT, related_name='banners')
+    page = models.ForeignKey(
+        Page, on_delete=models.PROTECT, related_name='banners')
     mobile_image = models.ImageField(upload_to='banners/')
     desktop_image = models.ImageField(upload_to='banners/')
     is_active = models.BooleanField(default=False)
