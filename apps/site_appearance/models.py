@@ -3,7 +3,7 @@ from django.db import models
 
 class HeaderData(models.Model):
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, null=True, blank=True)
     theme_color = models.CharField(max_length=10, default='#ffffff')
     icon = models.ImageField(upload_to='party_icons/', null=True)
 
