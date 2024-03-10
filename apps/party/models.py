@@ -8,14 +8,6 @@ class Logo(models.Model):
     desktop_image = models.ImageField(upload_to='logos/')
 
 
-class OpenGraphMetaData(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=255)
-    type = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='og_images/')
-    url = models.URLField(max_length=200)
-
-
 class Party(PolymorphicModel):
     class PartyType(models.TextChoices):
         Individual = 'individual'
@@ -29,7 +21,6 @@ class Party(PolymorphicModel):
     display_name = models.CharField(max_length=20)
 
     logo = models.OneToOneField(Logo, on_delete=models.PROTECT, related_name='party')
-    og_metadata = models.ForeignKey(OpenGraphMetaData, on_delete=models.PROTECT, related_name='party')
 
     def __str__(self):
         return f'{self.display_name} | {self.name} | {self.party_type}'

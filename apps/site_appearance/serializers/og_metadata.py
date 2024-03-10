@@ -1,6 +1,10 @@
+from django.conf import settings
 from rest_framework import serializers
-from apps.party.models import OpenGraphMetaData
-from apps.party.serializers.logo_serializer import get_media_url
+from apps.site_appearance.models import OpenGraphMetaData
+
+
+def get_media_url():
+    return settings.SERVICE_DOMAIN
 
 
 class OpenGraphMetadataSerializer(serializers.ModelSerializer):
