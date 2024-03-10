@@ -11,7 +11,7 @@ class PageSerializer(serializers.ModelSerializer):
     og_metadata = OpenGraphMetadataSerializer()
 
     def get_banners(self, obj):
-        return BannerSerializer(obj.banners, many=True).data
+        return BannerSerializer(obj.banners.filter(is_active=True), many=True).data
 
     class Meta:
         model = Page
