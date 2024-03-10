@@ -9,8 +9,6 @@ SECRET_KEY = '*z!3aidedw32xh&1ew(^&5dgd17(ynnmk=s*mo=v2l_(4t_ff('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-SERVICE_DOMAIN = 'http://localhost:9000'
-
 ALLOWED_HOSTS = ['*']
 
 # Database

@@ -4,8 +4,6 @@ DEBUG = get_environment_var('DEBUG', 'False') == 'True'
 
 TESTING = False
 
-SERVICE_DOMAIN = 'https://mps.sepid.org'
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

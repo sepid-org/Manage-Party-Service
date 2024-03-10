@@ -1,3 +1,4 @@
+from django.conf import settings
 from rest_framework import serializers
 from apps.site_appearance.models import Banner
 
@@ -12,11 +13,7 @@ class BannerSerializer(serializers.ModelSerializer):
         read_only_fields = ['desktop_image', 'mobile_image', 'redirect_to']
 
     def get_desktop_image(self, obj):
-        request = self.context.get('request')
-        abs_url = obj.desktop_image.url
-        return request.build_absolute_uri(abs_url)
+        return settings.SERVICE_DOMAIN + obj.desktop_image.url
 
     def get_mobile_image(self, obj):
-        request = self.context.get('request')
-        abs_url = obj.mobile_image.url
-        return request.build_absolute_uri(abs_url)
+        return settings.SERVICE_DOMAIN + obj.mobile_image.url

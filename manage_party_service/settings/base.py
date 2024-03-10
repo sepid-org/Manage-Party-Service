@@ -7,6 +7,8 @@ def get_environment_var(var_name, default=None, prefixed=True):
     return os.getenv(var_name, default)
 
 
+SERVICE_DOMAIN = get_environment_var('SERVICE_DOMAIN', 'http://localhost:9000')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
