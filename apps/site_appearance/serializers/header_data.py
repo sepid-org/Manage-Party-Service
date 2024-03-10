@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from apps.site_appearance.models import HeaderData
-from apps.site_appearance.serializers.logo_serializer import get_media_url
+from apps.party.serializers.logo_serializer import get_media_url
 
 
 class HeaderDataSerializer(serializers.ModelSerializer):

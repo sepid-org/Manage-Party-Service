@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from apps.site_appearance.models import OpenGraphMetaData
-from apps.site_appearance.serializers.logo_serializer import get_media_url
+from apps.party.models import OpenGraphMetaData
+from apps.party.serializers.logo_serializer import get_media_url
 
 
 class OpenGraphMetadataSerializer(serializers.ModelSerializer):
@@ -8,7 +8,7 @@ class OpenGraphMetadataSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OpenGraphMetaData
-        fields = '__all__'
+        fields = ['title', 'description', 'type', 'image', 'url']
 
     def get_image(self, obj):
         return get_media_url() + obj.image.url

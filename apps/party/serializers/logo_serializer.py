@@ -1,6 +1,6 @@
 from django.conf import settings
 from rest_framework import serializers
-from apps.site_appearance.models import Logo
+from apps.party.models import Logo
 
 
 def get_media_url():

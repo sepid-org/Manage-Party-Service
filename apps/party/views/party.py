@@ -17,7 +17,7 @@ class PartyViewSet(viewsets.ModelViewSet):
 
 @api_view(["GET"])
 @permission_classes((AllowAny, ))
-def get_party_by_domain(request):
+def get_party(request):
     party_domain = urlparse(request.META['HTTP_ORIGIN']).netloc
     party_domain_object = PartyDomain.objects.get(domain=party_domain)
     serializer = PartySerializer(instance=party_domain_object.party)

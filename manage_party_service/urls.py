@@ -31,7 +31,7 @@ if not settings.DEBUG:
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
-    path('api/party-manager/', include('apps.party.urls')),
+    path('api/party/', include('apps.party.urls')),
     path('api/site-appearance/', include('apps.site_appearance.urls')),
 ]
 
