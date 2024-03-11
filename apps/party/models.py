@@ -16,7 +16,7 @@ class Party(PolymorphicModel):
     party_type = models.CharField(max_length=25, choices=PartyType.choices)
     uuid = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=50, null=True, blank=True)
+    name = models.CharField(max_length=50, unique=True, help_text="The name is uniqe. The name is used for retrieving party information.")
     display_name = models.CharField(max_length=20)
 
     logo = models.OneToOneField(Logo, on_delete=models.PROTECT, related_name='party')
