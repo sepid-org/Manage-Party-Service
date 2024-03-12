@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'polymorphic',
     'manage_party_service.apps.ManagePartyServiceConfig',
     'apps.party.apps.PartyConfig',
-    'apps.site_appearance.apps.SiteAppearanceConfig'
+    'apps.site_appearance.apps.SiteAppearanceConfig',
+    'apps.third_party.apps.ThirdPartyConfig',
 ]
 
 MIDDLEWARE = [

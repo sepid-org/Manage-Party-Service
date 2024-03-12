@@ -1,21 +1,42 @@
 from django.db import models
+from polymorphic.models import PolymorphicModel
 
 
-class SMSService(models.Model):
-    # مثل کاوه‌نگار
-    pass
+class ThirdParty(PolymorphicModel):
+    party = models.UUIDField()
+    token = models.CharField(max_length=255, unique=True)
 
 
-class VoiceCallService(models.Model):
-    # مثل کاوه‌نگار
-    pass
+class SMSService(ThirdParty):
+    class SMSServiceType(models.TextChoices):
+        Kavenegar = 'Kavenegar'
+
+    type = models.CharField(max_length=25, choices=SMSServiceType.choices)
 
 
-class PaymentService(models.Model):
-    # مثل زرین‌پال
-    pass
+class SiteSupportService(ThirdParty):
+    class SiteSupportType(models.TextChoices):
+        Goftino = 'Goftino'
+        Crisp = 'Crisp'
+
+    type = models.CharField(max_length=25, choices=SiteSupportType.choices)
 
 
-class SiteSupportService(models.Model):
-    # مثل گفتینو
-    pass
+# class VoiceCallService(ThirdParty):
+#     # مثل کاوه‌نگار
+#     pass
+
+
+# class PaymentService(ThirdParty):
+#     # مثل زرین‌پال
+#     pass
+
+
+# class ChatRoomService(ThirdParty):
+#     # مثل قرار
+#     pass
+
+# initSentry()
+# initGoogleAnalytics()
+# initGoogleTagManager()
+# initClarity()

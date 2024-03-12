@@ -33,6 +33,7 @@ urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/party/', include('apps.party.urls')),
     path('api/site-appearance/', include('apps.site_appearance.urls')),
+    path('api/third-party/', include('apps.third_party.urls')),
 ]
 
 urlpatterns += [path('api/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
