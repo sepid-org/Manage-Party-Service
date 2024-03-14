@@ -25,6 +25,8 @@ class Page(models.Model):
     og_metadata = models.OneToOneField(
         OpenGraphMetaData, on_delete=models.PROTECT, related_name='page', null=True, blank=True)
     order = models.IntegerField(default=0)
+    appbar = models.ForeignKey(
+        'Appbar', on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return f'name: {self.name} | address pattern: {self.address_pattern} | order: {self.order}'
@@ -37,3 +39,7 @@ class Banner(models.Model):
     desktop_image = models.ImageField(upload_to='banners/')
     is_active = models.BooleanField(default=False)
     redirect_to = models.URLField()
+
+
+class Appbar(models.Model):
+    body = models.JSONField(default={})

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from apps.site_appearance.models import Page
+from apps.site_appearance.serializers.appbar import AppbarSerializer
 from apps.site_appearance.serializers.banner_serializer import BannerSerializer
 from apps.site_appearance.serializers.header_data import HeaderDataSerializer
 from apps.site_appearance.serializers.og_metadata import OpenGraphMetadataSerializer
@@ -8,6 +9,7 @@ from apps.site_appearance.serializers.og_metadata import OpenGraphMetadataSerial
 class PageSerializer(serializers.ModelSerializer):
     header_data = HeaderDataSerializer()
     banners = serializers.SerializerMethodField()
+    appbar = AppbarSerializer()
     og_metadata = OpenGraphMetadataSerializer()
 
     def get_banners(self, obj):
@@ -16,4 +18,4 @@ class PageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Page
         fields = ['party', 'address_pattern',
-                  'header_data', 'banners', 'og_metadata']
+                  'header_data', 'banners', 'og_metadata', 'appbar']

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.site_appearance.models import HeaderData, Banner, Page, OpenGraphMetaData
+from apps.site_appearance.models import HeaderData, Banner, Page, OpenGraphMetaData, Appbar
 
 
 @admin.register(Page)
@@ -26,5 +26,12 @@ class HeaderDataAdmin(admin.ModelAdmin):
 @admin.register(OpenGraphMetaData)
 class OpenGraphMetaDataAdmin(admin.ModelAdmin):
     model = OpenGraphMetaData
+    list_display = ['id']
+    list_filter = []
+
+
+@admin.register(Appbar)
+class AppbarAdmin(admin.ModelAdmin):
+    model = Appbar
     list_display = ['id']
     list_filter = []
