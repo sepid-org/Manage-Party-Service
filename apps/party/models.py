@@ -39,3 +39,13 @@ class PartyDomain(models.Model):
 
     class Meta:
         unique_together = ('party', 'domain')
+
+
+class OpenGraphMetaData(models.Model):
+    party = models.OneToOneField(
+        Party, on_delete=models.PROTECT, related_name='og_metadata')
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=255, null=True, blank=True)
+    type = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='og_images/')
+    url = models.URLField(max_length=200)
